@@ -1,11 +1,12 @@
 
 import { HeroCard } from './';
 import { getHeroesByPublisher } from '../helpers'
+import { useMemo } from 'react';
 
 // eslint-disable-next-line react/prop-types
 export const HeroesList = ( { publisher } ) => {
 
-    const heroes = getHeroesByPublisher( publisher );
+    const heroes = useMemo( () => getHeroesByPublisher( publisher ), [ publisher ] );
 
     return (
         
